@@ -29,11 +29,12 @@ router.get("/alumnos", (req, res) => {
 });
 
 //update a user
+
 router.put("/alumnos/:id", (req, res) => {
   const { id } = req.params;
-  const { nombre, apellido, curso, email } = req.body;
-  userSchema
-    .updateOne({ _id: id }, { $set: { nombre, apellido, curso, email } })
+  const user = userSchema(req.body);
+  user
+    .save()
     .then((data) => res.json(data))
     .catch((err) => res.json({ message: err }));
 });

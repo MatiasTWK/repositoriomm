@@ -19,20 +19,17 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  date: {
+  fecha: {
     type: Date,
     default: Date.now,
   },
-  apoderado: {
-    type: Schema.Types.ObjectId,
-    ref: "Apoderado",
-    autopopulate: true,
+  atrasos: {
+    type: Number,
+    default: 0,
   },
-
-  apoderado2: {
-    type: Schema.Types.ObjectId,
-    ref: "apoderado2",
-    autopopulate: true,
+  estado: {
+    type: Boolean,
+    default: false,
   },
 });
 userSchema.plugin(require("mongoose-autopopulate"));
