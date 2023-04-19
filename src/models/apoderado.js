@@ -19,5 +19,5 @@ const apoderadoSchema = new mongoose.Schema({
     ref: "Detalle",
   },
 });
-
+apoderadoSchema.plugin(require("mongoose-autopopulate"));
 module.exports = mongoose.model("Apoderado", apoderadoSchema);

@@ -26,11 +26,14 @@ const userSchema = mongoose.Schema({
   apoderado: {
     type: Schema.Types.ObjectId,
     ref: "Apoderado",
+    autopopulate: true,
   },
+
   apoderado2: {
     type: Schema.Types.ObjectId,
     ref: "apoderado2",
+    autopopulate: true,
   },
 });
-
+userSchema.plugin(require("mongoose-autopopulate"));
 module.exports = mongoose.model("User", userSchema);
