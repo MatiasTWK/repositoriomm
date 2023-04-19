@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const apoderadoSchema = new mongoose.Schema({
   nombre: {
@@ -12,6 +13,10 @@ const apoderadoSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+  },
+  detalle: {
+    type: Schema.Types.ObjectId,
+    ref: "Detalle",
   },
 });
 

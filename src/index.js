@@ -8,14 +8,16 @@ const port = process.env.PORT || 3000;
 const userRoutes = require("./routes/user");
 const apoderadoRoutes = require("./routes/apoderado");
 const apoderado2Routes = require("./routes/apoderado2");
+const detalleRoutes = require("./routes/detalle");
 
 //middlewares
 app.use(express.json());
 
 app.use(cors());
-app.use("/api", userRoutes);
-app.use("/api", apoderadoRoutes);
-app.use("/api", apoderado2Routes);
+app.use("/", userRoutes);
+app.use("/", apoderadoRoutes);
+app.use("/", apoderado2Routes);
+app.use("/", detalleRoutes);
 
 //cors
 app.use((req, res, next) => {
